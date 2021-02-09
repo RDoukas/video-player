@@ -1,6 +1,6 @@
 /* Get Our Elements */
-var cloudinary = require("cloudinary-core");
-var cl = new cloudinary.Cloudinary({cloud_name: "djka3ehcg", secure: true});
+// var cloudinary = require("cloudinary-core");
+// var cl = new cloudinary.Cloudinary({cloud_name: "djka3ehcg", secure: true});
 
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');

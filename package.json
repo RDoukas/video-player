@@ -1,0 +1,19 @@
+{
+  "name": "video-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RDoukas/video-player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RDoukas/video-player/issues"
+  },
+  "homepage": "https://github.com/RDoukas/video-player#readme"
+}
