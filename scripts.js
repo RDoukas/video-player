@@ -1,4 +1,7 @@
 /* Get Our Elements */
+var cloudinary = require("cloudinary-core");
+var cl = new cloudinary.Cloudinary({cloud_name: "djka3ehcg", secure: true});
+
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');
 const progress = player.querySelector('.progress');
@@ -8,6 +11,7 @@ const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
 /* Build out functions */
+
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
@@ -53,3 +57,4 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
