@@ -1,25 +1,9 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "agentkeepalive": "^4.1.3"
-  },
-  "name": "gum",
-=======
   "name": "video-player",
->>>>>>> 9301fd0021b80eefbb10f97d95b79edcfbd59bbb
   "version": "1.0.0",
   "description": "",
   "main": "scripts.js",
   "scripts": {
-<<<<<<< HEAD
-    "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.12.5 <2.23.2"
-  }
-=======
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,5 +16,4 @@
     "url": "https://github.com/RDoukas/video-player/issues"
   },
   "homepage": "https://github.com/RDoukas/video-player#readme"
->>>>>>> 9301fd0021b80eefbb10f97d95b79edcfbd59bbb
 }
