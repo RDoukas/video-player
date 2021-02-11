@@ -4,7 +4,8 @@
 
 const player = document.querySelector(".player");
 const video = player.querySelector(".viewer");
-
+const canvas = document.querySelector('.photo');
+const ctx = canvas.getContext('2d');
 const progress = player.querySelector(".progress");
 const progressBar = player.querySelector(".progress__filled");
 const toggle = player.querySelector(".toggle");
@@ -12,6 +13,7 @@ const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
 /* Build out functions */
+
 function togglePlay() {
   const method = video.paused ? "play" : "pause";
   video[method]();
@@ -41,13 +43,45 @@ function scrub(e) {
   video.currentTime = scrubTime;
 }
 
-/* Hook up the event listeners */
+function paintToCanvas() {
+  const width = video.videoWidth;
+  const height = video.videoHeight;
+  canvas.width = width;
+  canvas.height = height;
+  return setInterval(() => {
+    ctx.drawImage(video, 0, 0, width, height);
+    let pixels = ctx.getImageData(0, 0, width, height);
+    // pixels = redEffect(pixels);
+    pixels = rgbSplit(pixels);
+    ctx.putImageData(pixels, 0, 0);
+  }, 16);
+}
 
+function redEffect(pixels) {
+  for (let i = 0; i < pixels.data.length; i += 4) {
+    pixels.data[i + 0] = pixels.data[i + 0] + 100;
+    pixels.data[i + 1] = pixels.data[i + 1] - 50;
+    pixels.data[i + 2] = pixels.data[i + 2] * 0.5;
+  }
+  return pixels;
+}
+
+function rgbSplit(pixels) {
+  for (let i = 0; i < pixels.data.length; i += 4) {
+    pixels.data[i - 150] = pixels.data[i + 0];
+    pixels.data[i + 400] = pixels.data[i + 1];
+    pixels.data[i - 250] = pixels.data[i + 2];
+  }
+  return pixels;
+}
+
+
+/* Hook up the event listeners */
+video.addEventListener('canplay', paintToCanvas);
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
 video.addEventListener("timeupdate", handleProgress);
-
 toggle.addEventListener("click", togglePlay);
 skipButtons.forEach((button) => button.addEventListener("click", skip));
 ranges.forEach((range) => range.addEventListener("change", handleRangeUpdate));
