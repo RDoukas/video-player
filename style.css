@@ -27,6 +27,17 @@ body {
   position: relative;
   font-size: 0;
   overflow: hidden;
+  top: 20px;
+  right: 20px;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/*clearfix*/
+.player:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* This css is only applied when fullscreen is active. */
