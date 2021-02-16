@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/RDoukas/video-player/issues"
   },
-  "homepage": "https://github.com/RDoukas/video-player#readme"
+  "homepage": "https://github.com/RDoukas/video-player#readme",
+  "dependencies": {
+    "cloudinary-core": "^2.11.3"
+  }
 }
