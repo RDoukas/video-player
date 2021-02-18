@@ -7,36 +7,43 @@
   </head>
   <body>
     <div class="player">
-      <div class="player__controls">
-        <div class="progress">
-          <div class="progress__filled"></div>
+      <div class="container">
+        <div class="player__controls">
+          <div class="progress">
+            <div class="progress__filled"></div>
+          </div>
+          <button class="player__button toggle" title="Toggle Play">►</button>
+          <input
+            type="range"
+            name="volume"
+            class="player__slider"
+            min="0"
+            max="1"
+            step="0.05"
+            value="1"
+          />
+          <input
+            type="range"
+            name="playbackRate"
+            class="player__slider"
+            min="0.5"
+            max="2"
+            step="0.1"
+            value="1"
+          />
+          <button data-skip="-10" class="player__button">« 10s</button>
+          <button data-skip="25" class="player__button">25s »</button>
         </div>
-        <button class="player__button toggle" title="Toggle Play">►</button>
-        <input
-          type="range"
-          name="volume"
-          class="player__slider"
-          min="0"
-          max="1"
-          step="0.05"
-          value="1"
-        />
-        <input
-          type="range"
-          name="playbackRate"
-          class="player__slider"
-          min="0.5"
-          max="2"
-          step="0.1"
-          value="1"
-        />
-        <button data-skip="-10" class="player__button">« 10s</button>
-        <button data-skip="25" class="player__button">25s »</button>
+
+        <video
+          id="videoSource"
+          class="player__video viewer"
+          onplay="paintToCanvas(this)"
+        >
+          <source id="videoSource" src="652333414.mp4" />
+        </video>
+        <canvas class="photo"></canvas>
       </div>
-      <canvas class="photo"></canvas>
-      <video id="videoSource" class="player__video viewer">
-        <source id="videoSource" src="652333414.mp4" />
-      </video>
     </div>
 
     <button id="upload_widget" class="cloudinary-button">Upload files</button>
@@ -47,6 +54,29 @@
     ></script>
 
     <script type="text/javascript">
+      window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      const recognition = new SpeechRecognition();
+      recognition.interimResults = true;
+
+      recognition.addEventListener("result", (e) => {
+        const transcript = Array.from(e.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+        // console.log(transcript);
+        if (transcript.includes("play")) {
+          video.play();
+        } else if (transcript.includes("pause")) {
+          video.pause();
+        }
+      });
+
+      recognition.addEventListener("end", recognition.start);
+
+      recognition.start();
+
       var myWidget = cloudinary.createUploadWidget(
         {
           cloudName: "djka3ehcg",
