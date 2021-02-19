@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="player">
-      <div class="container">
+
         <div class="player__controls">
           <div class="progress">
             <div class="progress__filled"></div>
@@ -34,6 +34,7 @@
           <button data-skip="-10" class="player__button">« 10s</button>
           <button data-skip="25" class="player__button">25s »</button>
         </div>
+        <canvas class="photo"></canvas>
 
         <video
           id="videoSource"
@@ -42,8 +43,8 @@
         >
           <source id="videoSource" src="652333414.mp4" />
         </video>
-        <canvas class="photo"></canvas>
-      </div>
+        
+ 
     </div>
 
     <button id="upload_widget" class="cloudinary-button">Upload files</button>
