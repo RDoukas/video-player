@@ -68,6 +68,14 @@
           video.play();
         } else if (transcript.includes("pause")) {
           video.pause();
+        } else if (transcript.includes("skip ahead")) {
+          video.currentTime += parseFloat(10);
+        } else if (transcript.includes("skip back")) {
+          video.currentTime += parseFloat(-10);
+        } else if (transcript.includes("volume up")) {
+          video.volume += 0.05;
+        } else if (transcript.includes("volume down")) {
+          video.volume -= 0.05;
         }
       });
 
