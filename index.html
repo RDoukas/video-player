@@ -33,7 +33,7 @@
         <button data-skip="-10" class="player__button">« 10s</button>
         <button data-skip="25" class="player__button">25s »</button>
       </div>
-      <canvas class="photo"></canvas>
+      <canvas class="photo" onplay="paintToCanvas()"></canvas>
 
       <video
         id="videoSource"
@@ -86,8 +86,11 @@
             // let uploadedVideo = result.info.path;
             videoSrc = result.info.secure_url;
             console.log(videoSrc);
+            // videoSrc.setAttribute("crossOrigin", "");
+            // videoSrc.setAttribute("src", this.data.src.small);
             document.getElementById("videoSource").src = videoSrc;
             document.getElementById("videoPlayerVideo").load();
+            // paintToCanvas(videoSrc);
           }
         }
       );
