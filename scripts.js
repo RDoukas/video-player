@@ -12,6 +12,7 @@ const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 let toggledRed = false;
+let toggledSplit = false;
 
 /* Build out functions */
 
@@ -55,7 +56,10 @@ function paintToCanvas() {
     if (toggledRed) {
       pixels = redEffect(pixels);
     }
-    // pixels = rgbSplit(pixels);
+    if (toggledSplit) {
+      pixels = rgbSplit(pixels);
+    }
+
     ctx.putImageData(pixels, 0, 0);
   }, 16);
 }
@@ -83,6 +87,14 @@ function rgbSplit(pixels) {
     pixels.data[i - 250] = pixels.data[i + 2];
   }
   return pixels;
+}
+
+function toggleSplitEffect() {
+  if (!toggledSplit) {
+    toggledSplit = true;
+  } else {
+    toggledSplit = false;
+  }
 }
 
 /* Hook up the event listeners */
