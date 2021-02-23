@@ -8,6 +8,8 @@
   <body>
     <div class="player">
       <div class="player__controls">
+        
+        
         <div class="progress">
           <div class="progress__filled"></div>
         </div>
@@ -32,6 +34,8 @@
         />
         <button data-skip="-10" class="player__button">« 10s</button>
         <button data-skip="25" class="player__button">25s »</button>
+        <button class="player__button" onClick="redEffect()">Red Effect</button>
+        <button class="player__button" onClick="rgbSplit()">Rainbow Effect</button>
       </div>
       <canvas class="photo" onplay="paintToCanvas()"></canvas>
 
