@@ -11,6 +11,7 @@ const progressBar = player.querySelector(".progress__filled");
 const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
+let toggledRed = false;
 
 /* Build out functions */
 
@@ -51,7 +52,9 @@ function paintToCanvas() {
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
     let pixels = ctx.getImageData(0, 0, width, height);
-    pixels = redEffect(pixels);
+    if (toggledRed) {
+      pixels = redEffect(pixels);
+    }
     // pixels = rgbSplit(pixels);
     ctx.putImageData(pixels, 0, 0);
   }, 16);
@@ -66,6 +69,13 @@ function redEffect(pixels) {
   return pixels;
 }
 
+function toggleRedEffect() {
+  if (!toggledRed) {
+    toggledRed = true;
+  } else {
+    toggledRed = false;
+  }
+}
 function rgbSplit(pixels) {
   for (let i = 0; i < pixels.data.length; i += 4) {
     pixels.data[i - 150] = pixels.data[i + 0];
