@@ -12,12 +12,18 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  background: #7a419b;
+  /* background: #7a419b; */
   min-height: 100vh;
-  background: linear-gradient(135deg, #7c1599 0%, #921099 48%, #7e4ae8 100%);
+  background: linear-gradient(
+    135deg,
+    #9ef3fa 0%,
+    #9efac5 48%,
+    #b4fa9e 100% 100%
+  );
   background-size: cover;
   align-items: center;
   justify-content: center;
+  color: #4c67c4;
 }
 .container > div {
   float: bottom;
@@ -85,7 +91,7 @@ canvas {
   background: none;
   border: 0;
   line-height: 1;
-  color: white;
+  color: #4c67c4;
   text-align: center;
   outline: 0;
   padding: 0;
