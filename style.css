@@ -19,6 +19,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.container > div {
+  float: bottom;
+}
 
 .player {
   width: 650px;
@@ -32,6 +35,22 @@ body {
   right: 20px;
   margin: 2rem auto;
   border-radius: 2px;
+}
+
+.voice_controls {
+  padding-bottom: 20px;
+  width: 300px;
+  height: auto;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  top: 20px;
+  right: 20px;
+  margin: 2rem auto;
+  border-radius: 2px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /*clearfix*/
