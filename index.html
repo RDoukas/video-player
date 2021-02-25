@@ -50,7 +50,18 @@
         </video>
       </div>
       <div class="voice_controls">
-        <h1>HELLO</h1>
+        <div>
+          <h2>Voice Commands:</h2>
+          <div>Play</div>
+          <div>Pause</div>
+          <div>Mute</div>
+          <div>Sound On</div>
+          <div>Volume Up</div>
+          <div>Volume Down</div>
+          <div>Skip Ahead</div>
+          <div>Skip Back</div>
+        </div>
+        <br>
         <div>
           <button id="upload_widget" class="cloudinary-button">Upload Video</button>
         </div>
@@ -88,6 +99,10 @@
           video.volume += 0.05;
         } else if (transcript.includes("volume down")) {
           video.volume -= 0.05;
+        } else if (transcript.includes("mute")) {
+          video.volume = 0;
+        } else if (transcript.includes("sound on")) {
+          video.volume = 0.5;
         }
       });
 
